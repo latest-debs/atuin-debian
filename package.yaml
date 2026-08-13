@@ -2,6 +2,7 @@
 
 package_name: atuin
 github_repo: atuinsh/atuin
+license: MIT
 artifact_format: tar.gz
 description: "Magical shell history"
 
