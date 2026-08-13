@@ -88,7 +88,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: atuin-debian-packages
-          path: atuin_*.deb
+          path: |
+              atuin_*.deb
+              *.dsc
+              *.debian.tar.xz
+              *.orig.tar.xz
           if-no-files-found: error
 
   release:
@@ -108,5 +112,9 @@ jobs:
           draft: true
           tag_name: ${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}
           name: ${{ needs.prepare.outputs.version }}+${{ needs.prepare.outputs.build_version }}
-          files: atuin_*.deb
+          files: |
+              atuin_*.deb
+              *.dsc
+              *.debian.tar.xz
+              *.orig.tar.xz
           fail_on_unmatched_files: true
