@@ -5,6 +5,11 @@ github_repo: atuinsh/atuin
 artifact_format: tar.gz
 description: "Magical shell history"
 
+# atuin's upstream release binaries link against a newer glibc than Debian
+# bookworm ships (they require GLIBC_2.38; bookworm provides 2.36), so they
+# cannot run on bookworm. Build for the newer suites only.
+debian_distributions: ["trixie", "forky", "sid"]
+
 # atuin's release bundles both the CLI (atuin-*) and the atuin-server
 # (atuin-server-*) under matching architecture tokens (both e.g.
 # "x86_64-unknown-linux-gnu") - auto-discovery can't tell them apart and
