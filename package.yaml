@@ -21,3 +21,10 @@ architectures:
     release_pattern: "atuin-x86_64-unknown-linux-gnu.tar.gz"
   arm64:
     release_pattern: "atuin-aarch64-unknown-linux-gnu.tar.gz"
+
+# Opt into native Ubuntu builds (builder >= v.0.1a29). Packages without
+# these are served from the Debian suites via the alias fallback.
+ubuntu_distributions:
+  - jammy
+  - noble
+  - resolute
